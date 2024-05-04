@@ -5,14 +5,23 @@ def create_file(command):
     command_extention = command[2]
     file_name = command[3]
     file_path = f"{dir_path}\\{file_name}.dsu"
-    print("this is file path",file_path)
     if Path(file_path).exists():
         print("file already exists")
-        start()
     else:
         Path(file_path).touch()
         print(f'file created at {file_path}')
-        start()
+    start()
+
+
+def delet_file(command):
+    file_path = command[1]
+    if Path(file_path).exists():
+        Path(file_path).unlink()
+        print(f"{file_path} DELETED")
+    else:
+        print("ERROR")
+    start()
+
 
 def start():
     command = input("Please Enter Command: ")
@@ -23,7 +32,7 @@ def start():
     elif type == 'R':
         pass
     elif type == 'D':
-        pass
+        delet_file(command_list)
     else:
         print("Please Enter Correct Command")
         start()
