@@ -10,7 +10,7 @@ def create_file(command):
         print("file already exists")
     else:
         Path(file_path).touch()
-        print(f'file created at {file_path}')
+        print(f'{file_path}')
     start()
 
 
