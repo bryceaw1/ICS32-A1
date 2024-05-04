@@ -30,13 +30,14 @@ def read_file(command):
         with open(file_path, 'r')as file:
             lines = file.readlines()
             if lines:
-                print(lines)
+                for line in lines:
+                    print(line)
             else:
                 print("EMPTY")
                 start()
     else:
         print("ERROR")
-        start()
+    start()
 
 
 def start():
@@ -46,7 +47,7 @@ def start():
     if type == 'C':
         create_file(command_list)
     elif type == 'R':
-        pass
+        read_file(command_list)
     elif type == 'D':
         delet_file(command_list)
     else:
