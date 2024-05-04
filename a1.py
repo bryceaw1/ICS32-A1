@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 def create_file(command):
     dir_path = command[1]
     command_extention = command[2]
@@ -21,6 +22,21 @@ def delet_file(command):
     else:
         print("ERROR")
     start()
+
+
+def read_file(command):
+    file_path = command[1]
+    if Path(file_path).exists():
+        with open(file_path, 'r')as file:
+            lines = file.readlines()
+            if lines:
+                print(lines)
+            else:
+                print("EMPTY")
+                start()
+    else:
+        print("ERROR")
+        start()
 
 
 def start():
